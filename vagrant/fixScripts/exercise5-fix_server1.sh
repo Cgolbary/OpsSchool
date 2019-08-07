@@ -1,2 +1,97 @@
 #!/bin/bash
 #add fix to exercise5-server1 here
+#apt-get install sshpass
+#alias server2='sshpass -p 'vagrant' ssh -o StrictHostKeyChecking=no vagrant@192.168.100.11'
+#source ~/.bashrc
+#ssh-keygen -t rsa
+#cat .ssh/id_rsa.pub | ssh server2 'cat >> .ssh/authorized_keys'
+
+ 
+
+SERVER_1_PUB_KEY="ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQC+XDgg7U6wUVhB2jKRs6VyH2gKYpeMAWxubaeTTg7G1XTzYV+6c1NEjJNXVrD8je2Usle8jMjW3cCi0mHr6WdV9tV7XWC7PCBE8VeOqMX4HQBL5kyORlx1DcSGpSPBcKOkNKSJXH8dOPW4QTHbeuMqPLm2JNyf8pkg2j5j5wa+EiXytyzKxO3/zY3fGDbVFjP6kBwe+RXC3DsSSWqp3G7f/1zFIdOmhPst5KT0V3zZ6gqdc6FFqn4IwPEOV5b4gaDbsawdq+G1N2yleV87NUbHlLViFm9JkGww/xwGiS2S9+E4vk98iUk74GtucBPFQAkGGrRcn3skjWdBeYVhp5xlJLmzYHl008Q2/ktQTQQqmGaG1bS6euVIyxKtSYixuyhf/wfLvB4YMkAcPc5z+BHKjhHMT2gzKDBtNTEuv8cbPiT2c13t29zqFqXD/qsxPhTFwoGQRQoWgM6txGpqE0hC7t5KtACQgK+Y2ULyKm0/nDT7F97hob4HXfnn77veOcRuegEUA3HopWq2eUciJGud8iByAxY5BnjqQSgRfYri1C2bUi5BHDFs+CS5N1pWSnNHfQyX7hTCMyln7sPsUf4lzUK3qmpLk0db8iOMY21nuub4YsETAq9aojenN+IsdvYItzFhBlHJgo2JaoZwSjUwv9BtIbcutdUFj02HP1sDyQ== vagrant@server1"
+
+
+
+
+PucblicKeyDir="/home/vagrant/.ssh/id_rsa.pub"
+echo $PucblicKeyDir
+
+PrivateKeyDir="/home/vagrant/.ssh/id_rsa"
+if [ -f $PucblicKeyDir ]
+then
+
+echo "file allready exist"
+ else
+echo "file not exist"
+echo $SERVER_1_PUB_KEY >>  /home/vagrant/.ssh/id_rsa.pub
+chmod -R 600 /home/vagrant/.ssh/id_rsa.pub
+
+fi
+
+
+if [ -f $PrivateKeyDir ]
+then
+
+echo "file allready exist"
+ else
+echo "file not exist"
+#echo $SERVER_1_PRIVATE_KEY >>  /home/vagrant/.ssh/id_rsa
+cat > /home/vagrant/.ssh/id_rsa <<- EOM
+-----BEGIN RSA PRIVATE KEY-----
+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
+-----END RSA PRIVATE KEY-----
+EOM
+chmod -R 600 /home/vagrant/.ssh/id_rsa
+
+fi
+
+
+

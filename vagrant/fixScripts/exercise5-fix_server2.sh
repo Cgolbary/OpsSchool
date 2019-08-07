@@ -1,2 +1,11 @@
-#!/bin/bash
+#!/bin/bash -i
 #add fix to exercise5-server2 here
+#apt-get install sshpass
+#alias server1='sshpass -p 'vagrant' ssh -o StrictHostKeyChecking=no vagrant@192.168.100.10'
+#source ~/.bashrc
+
+
+SERVER_1_PUB_KEY="ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQC+XDgg7U6wUVhB2jKRs6VyH2gKYpeMAWxubaeTTg7G1XTzYV+6c1NEjJNXVrD8je2Usle8jMjW3cCi0mHr6WdV9tV7XWC7PCBE8VeOqMX4HQBL5kyORlx1DcSGpSPBcKOkNKSJXH8dOPW4QTHbeuMqPLm2JNyf8pkg2j5j5wa+EiXytyzKxO3/zY3fGDbVFjP6kBwe+RXC3DsSSWqp3G7f/1zFIdOmhPst5KT0V3zZ6gqdc6FFqn4IwPEOV5b4gaDbsawdq+G1N2yleV87NUbHlLViFm9JkGww/xwGiS2S9+E4vk98iUk74GtucBPFQAkGGrRcn3skjWdBeYVhp5xlJLmzYHl008Q2/ktQTQQqmGaG1bS6euVIyxKtSYixuyhf/wfLvB4YMkAcPc5z+BHKjhHMT2gzKDBtNTEuv8cbPiT2c13t29zqFqXD/qsxPhTFwoGQRQoWgM6txGpqE0hC7t5KtACQgK+Y2ULyKm0/nDT7F97hob4HXfnn77veOcRuegEUA3HopWq2eUciJGud8iByAxY5BnjqQSgRfYri1C2bUi5BHDFs+CS5N1pWSnNHfQyX7hTCMyln7sPsUf4lzUK3qmpLk0db8iOMY21nuub4YsETAq9aojenN+IsdvYItzFhBlHJgo2JaoZwSjUwv9BtIbcutdUFj02HP1sDyQ== vagrant@server1"
+
+echo $SERVER_1_PUB_KEY >>  /home/vagrant/.ssh/authorized_keys
+chmod 644 /home/vagrant/.ssh/authorized_keys
